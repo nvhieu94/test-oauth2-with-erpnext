@@ -41,7 +41,7 @@ const AuthenticationCallbackPage =(props) => {
         //     console.log('error',error) 
         // })
         let data = {
-             url: 'https://gas-dev.dpotech.vn/api/method/frappe.integrations.oauth2.authorize',
+             url: 'https://gas-dev.dpotech.vn/api/method/frappe.integrations.oauth2.get_token',
              //grant_type: 'client_credentials',
              ///grant_type: "password",
              grant_type: 'authorization_code',
@@ -50,8 +50,6 @@ const AuthenticationCallbackPage =(props) => {
              redirect_uri: 'https://localhost:3000/callback',
              code: code,
              scope: 'all openid',
-             username: 'trangph@gmail.com',
-             password:'gas@12345',
         }
         const requestGetToken = oauth.client(axios.create(), data);
         requestGetToken().then((response)=>{
